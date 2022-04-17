@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .models import users
+
 
 def login(request):
     return render(request, 'index.html')
@@ -6,6 +8,21 @@ def login(request):
 
 def register(request):
     return render(request, 'register.html')
+
+
+def registerUser(request):
+    try:
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        if  users.save(email=email, password=password):
+            return redirect('')
+            
+        print(users.objects.all())
+    except Exception as exc:
+        print(exc)
+
+    return redirect('register')
+    
 
 
 def dashboard(request):

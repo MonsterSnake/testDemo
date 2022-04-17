@@ -9,7 +9,8 @@
     </head>
     <body>
         <center>
-        <form>
+        <form method="post", action="registerUser">
+            {% csrf_token %}
             <table width="25%">
             
                 <tr>
@@ -20,7 +21,7 @@
             
                 <tr>
                     <td>
-                        <input type="email" name="login" id="login" placeholder="Your Email Here" class="form-control" required>
+                        <input type="email" name="email" id="email" placeholder="Your Email Here" class="form-control" required>
                     </td>
                 </tr>
                 <tr>
