@@ -14,7 +14,10 @@ def registerUser(request):
     try:
         email = request.POST.get('email')
         password = request.POST.get('password')
-        if  users.save(email=email, password=password):
+        user = users()
+        user.email = email
+        user.password = password
+        if  users.save():
             return redirect('')
             
         print(users.objects.all())

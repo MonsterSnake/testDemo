@@ -24,5 +24,7 @@ class products(models.Model):
 class users(models.Model):
     email = models.TextField()
     password = models.TextField()
+
+    
     def __str__(self):
         return self.email
